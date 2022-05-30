@@ -7,6 +7,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *first, *second;
+
 	if (!list)
 		return (0);
 	first = list;
@@ -15,6 +16,10 @@ int check_cycle(listint_t *list)
 	{
 		if (first->next && first->next->next &&
 			first->next->next->next && first->next->next->next->next)
+			/*
+			* if cycle in loop , we can have any number of nodes
+			*  I choose to move first node by 4
+			*/
 		{
 			first = first->next->next->next->next;
 			second = second->next;
