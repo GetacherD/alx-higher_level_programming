@@ -10,18 +10,18 @@ int check_cycle(listint_t *list)
 
 	first = list;
 	second = list;
-	while (first)
+	while (1)
 	{
-		if (first == first->next)
-			return (1);
-		while (second != first)
+		if (first->next && first->next->next &&
+			first->next->next->next && first->next->next->next->next)
 		{
-			if (second == first->next)
-				return (1);
+			first = first->next->next->next->next;
 			second = second->next;
+			if (first == second)
+				return (1);
 		}
-		second = list;
-		first = first->next;
+		else
+			return (0);
 	}
 	return (0);
 }
