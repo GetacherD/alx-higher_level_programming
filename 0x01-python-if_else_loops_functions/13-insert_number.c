@@ -3,6 +3,7 @@
 * insert_node - insert node in sorted list
 * @head: head pointer
 * @number: new value for the node
+* Return: head pointer
 */
 listint_t *insert_node(listint_t **head, int number)
 {
@@ -17,23 +18,30 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		*head = new;
 		new->next = NULL;
-		return (new);
+		return (*head);
 	}
 	while (Node)
 	{
+		if (Node->n > number)
+		{
+			new->next = Node;
+			*head = new;
+			return (*head);
+		}
+
 		if (Node->n < number && Node->next->n > number)
 		{
 			new->next = Node->next;
 			Node->next = new;
-			return (new);
+			return (*head);
 		}
 		if (Node->next == NULL)
 		{
 			Node->next = new;
 			new->next = NULL;
-			return (new);
+			return (*head);
 		}
 		Node = Node->next;
 	}
-	return (NULL);
+	return (*head);
 }
