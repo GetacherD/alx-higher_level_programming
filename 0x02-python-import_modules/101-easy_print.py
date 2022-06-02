@@ -1,3 +1,2 @@
-#!/usr/bin/python3
-import os
-os.system("echo '#pythoniscool'")
+#!/bin/bash
+python3 -c "import os;os.system('echo \"#pythoniscool\"')"
