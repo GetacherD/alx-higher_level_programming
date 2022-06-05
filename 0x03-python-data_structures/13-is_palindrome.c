@@ -44,7 +44,7 @@ int is_palindrome(listint_t **head)
 			return (0);
 	}
 	tmp2 = cur->next;
-	for (i = 0; i <= (len / 2); i++)
+	for (i = 0; i < (len / 2); i++)
 	{
 		if (i == 0)
 		{
@@ -59,9 +59,10 @@ int is_palindrome(listint_t **head)
 			cur = tmp2;
 		}
 	}
+	cur = tmp;
 	if (len % 2 == 0)
 	{
-		while (cur && tmp2)
+		while (cur != NULL && tmp2 != NULL)
 		{
 			if (cur->n != tmp2->n)
 				return (0);
@@ -71,8 +72,7 @@ int is_palindrome(listint_t **head)
 		return (1);
 	}
 	tmp2 = tmp2->next;
-	cur = cur->next;
-	while (cur && tmp2)
+	while (cur != NULL && tmp2 != NULL)
 	{
 		if (cur->n != tmp2->n)
 			return (0);
