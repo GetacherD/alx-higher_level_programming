@@ -17,12 +17,11 @@ void print_python_bytes(PyObject *p)
     printf("  size: %d\n", size);
     printf("  trying string: %s\n", by->ob_sval);
     printf("  first %d bytes: ", 10 >= size ? size : 10);
-    for (i = 0; i < 9 && i < size - 1; i++)
+    for (i = 0; i < 10 && i < size; i++)
     {
       printf("%x ", by->ob_sval[i]);
     }
-    printf("%x\n", by->ob_sval[i]);
-  }
+   }
 }
 void print_python_list(PyObject *p)
 {
