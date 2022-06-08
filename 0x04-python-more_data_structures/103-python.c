@@ -30,9 +30,9 @@ void print_python_list(PyObject *p)
   int size, alloc, i = 0, is_valid;
   PyObject **objects;
   PyObject *ob;
-  is_valid = PyList_Check(p);
+  /*is_valid = PyList_Check(p);
   if (is_valid)
-  {
+  {*/
   size = PyList_Size(p);
   printf("IS IT HERE\n");
   
@@ -48,6 +48,6 @@ void print_python_list(PyObject *p)
       ob = objects[i];
       printf("%s\n", (ob->ob_type)->tp_name);
     }
-    }
+    
 
 }
