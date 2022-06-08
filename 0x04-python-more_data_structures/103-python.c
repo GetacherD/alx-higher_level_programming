@@ -34,9 +34,6 @@ void print_python_list(PyObject *p)
   if (is_valid)
   {*/
   size = PyList_Size(p);
-  printf("IS IT HERE\n");
-  
-       
   objects = ((PyListObject *)p)->ob_item;
   alloc = ((PyListObject *)p)->allocated;
   printf("[*] Python list info\n");
