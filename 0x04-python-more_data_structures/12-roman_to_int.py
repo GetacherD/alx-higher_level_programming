@@ -7,6 +7,16 @@ def roman_to_int(roman_string):
     val = [1, 5, 10, 50, 100, 500, 1000]
     sym = list(roman_string)
     tot = 0
+    if sym.index("V") > sym.index("X"):
+        return 0
+    if sym.index("V") > sym.index("M"):
+        return 0
+    if sym.index("V") > sym.index("L"):
+        return 0
+    if sym.index("V") > sym.index("C"):
+        return 0
+    if sym.index("V") > sym.index("D"):
+        return 0
     for c in sym:
         if c not in digits:
             return 0
@@ -23,4 +33,4 @@ def roman_to_int(roman_string):
         tot = tot - 20
     if "C" in sym and "D" in sym and sym.index("D") > sym.index("C"):
         tot = tot - 200
-    return int(tot)
+    return tot
