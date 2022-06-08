@@ -19,9 +19,9 @@ void print_python_bytes(PyObject *p)
     printf("  first %d bytes: ", 10 >= size ? size : 10);
     for (i = 0; i < 9 && i < size - 1; i++)
     {
-      printf("%.02x ", 0xff & by->ob_sval[i]);
+      printf("%02hhx ", by->ob_sval[i]);
     }
-    printf("%.02x\n", 0xff & by->ob_sval[i]);
+    printf("%02hhx\n",  by->ob_sval[i]);
   }
 }
 void print_python_list(PyObject *p)
@@ -32,7 +32,7 @@ void print_python_list(PyObject *p)
   PyObject *ob;
   is_valid = PyList_Check(p);
   if (is_valid)
-    {
+  {
   size = PyList_Size(p);
   printf("IS IT HERE\n");
   
