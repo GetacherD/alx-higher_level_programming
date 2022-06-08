@@ -13,8 +13,6 @@ def roman_to_int(roman_string):
         tot = tot + val[digits.index(c)]
     if "M" in sym and "C" in sym and sym.index("M") > sym.index("C"):
         tot = tot - 200
-    if "C" in sym and "X" in sym and sym.index("C") > sym.index("X"):
-        tot = tot - 20
     if "X" in sym and "L" in sym and sym.index("L") > sym.index("X"):
         tot = tot - 20
     if "V" in sym and "I" in sym and sym.index("V") > sym.index("I"):
