@@ -13,7 +13,7 @@ void print_python_bytes(PyObject *p)
     printf("[.] bytes object info\n");
     printf("  size: %d\n", size);
     printf("  trying string: %s\n", by->ob_sval);
-    printf("  first %d bytes: ", 10 >= size ? size : 10);
+    printf("  first %d bytes: ", 10 >= size ? size + 1 : 10);
     for (i = 0; i < 9 && i < size - 1; i++)
     {
       printf("%02hhx ", by->ob_sval[i]);
