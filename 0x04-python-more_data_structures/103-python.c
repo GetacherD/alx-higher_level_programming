@@ -27,7 +27,7 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 
-  int size, alloc, i = 0, is_valid;
+  int size, alloc, i = 0;
   PyObject **objects;
   PyObject *ob;
   /*is_valid = PyList_Check(p);
