@@ -4,7 +4,7 @@
 def roman_to_int(roman_string):
 
     if roman_string is None or type(roman_string) is not str:
-        return None
+        return 0
     digits = ["I", "V", "X", "L", "C", "D", "M"]
     val = [1, 5, 10, 50, 100, 500, 1000]
     sym = list(roman_string)
