@@ -6,8 +6,6 @@ void print_python_bytes(PyObject *p)
   int size, i;
   PyBytesObject *by = (PyBytesObject *)p;
   int is_valid = PyBytes_Check(p);
-  int is_none = Py_IsNone(p);
-  
   size = ((PyVarObject *)p)->ob_size;
   if (strcmp(((PyObject *)p)->ob_type->tp_name, "bytes") == 0)
     {  
@@ -22,9 +20,9 @@ void print_python_bytes(PyObject *p)
     }
     printf("%02hhx\n",  by->ob_sval[i]);
   }
-  if (!is_valid && is_none)
+  if (!is_valid)
     {
-      printf("[ERROR] Invalid Bytes Object");
+      printf("  [ERROR] Invalid Bytes Object\n");
     }
 }
 void print_python_list(PyObject *p)
@@ -33,9 +31,10 @@ void print_python_list(PyObject *p)
   int size, alloc, i = 0;
   PyObject **objects;
   PyObject *ob;
-  /*is_valid = PyList_Check(p);
+  int is_byte;
+  int is_valid = PyList_Check(p);
   if (is_valid)
-  {*/
+  {
   size = PyList_Size(p);
   objects = ((PyListObject *)p)->ob_item;
   alloc = ((PyListObject *)p)->allocated;
@@ -47,8 +46,11 @@ void print_python_list(PyObject *p)
       printf("Element %d: ", i);
       ob = objects[i];
       printf("%s\n", (ob->ob_type)->tp_name);
-      print_python_bytes(ob);
+      is_byte = PyBytes_Check(ob);
+      if(is_byte)
+	print_python_bytes(ob);
     }
+  }
     
 
 }
