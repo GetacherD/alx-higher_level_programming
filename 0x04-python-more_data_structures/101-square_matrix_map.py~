@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+
+def square_matrix_map(matrix=[]):
+
+    new = map(lambda row:[i * i for i in row], matrix]
+    print(list(map))
+
+square_matrix_map([[1, 2, 3], [3, 5,6]])
