@@ -23,4 +23,4 @@ def roman_to_int(roman_string):
         tot = tot - 20
     if "C" in sym and "D" in sym and sym.index("D") > sym.index("C"):
         tot = tot - 200
-    return tot
+    return int(tot)
