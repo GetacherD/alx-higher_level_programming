@@ -15,8 +15,8 @@ void print_python_bytes(PyObject *p)
   else
   {
     printf("  size: %d\n", size);
-    printf("  trying string: %s\n",by->ob_sval);
-    printf("  first %d bytes: ", 10 >= size?size:10);
+    printf("  trying string: %s\n", by->ob_sval);
+    printf("  first %d bytes: ", 10 >= size ? size : 10);
     for (i = 0; i < 9 && i < size - 1; i++)
     {
       printf("%x ", by->ob_sval[i]);
@@ -27,7 +27,7 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 
-  int size ,alloc, i = 0;
+  int size, alloc, i = 0;
   PyObject **objects = ((PyListObject *)p)->ob_item;
   PyObject *ob;
   size = PyList_Size(p);
@@ -40,19 +40,6 @@ void print_python_list(PyObject *p)
       printf("Element %d: ", i);
       ob = objects[i];
       printf("%s\n", (ob->ob_type)->tp_name);
-      
     }
-  
-
 
 }
-  
-/*
-
-
-  s = b"Hello"
-  lib.print_python_bytes(s);
-  [.] bytes object info
-  size: 5
-  trying string: Hello
-  first 6 bytes: 48 65 6c 6c 6f 00*/
