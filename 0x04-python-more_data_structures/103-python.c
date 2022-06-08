@@ -17,19 +17,27 @@ void print_python_bytes(PyObject *p)
     printf("  size: %d\n", size);
     printf("  trying string: %s\n", by->ob_sval);
     printf("  first %d bytes: ", 10 >= size ? size : 10);
-    for (i = 0; i < 10 && i < size; i++)
+    for (i = 0; i < 9 && i < size - 1; i++)
     {
-      printf("%x ", by->ob_sval[i]);
+      printf("%.02x ", 0xff & by->ob_sval[i]);
     }
-   }
+    printf("%.02x\n", 0xff & by->ob_sval[i]);
+  }
 }
 void print_python_list(PyObject *p)
 {
 
-  int size, alloc, i = 0;
-  PyObject **objects = ((PyListObject *)p)->ob_item;
+  int size, alloc, i = 0, is_valid;
+  PyObject **objects;
   PyObject *ob;
+  is_valid = PyList_Check(p);
+  if (is_valid)
+    {
   size = PyList_Size(p);
+  printf("IS IT HERE\n");
+  
+       
+  objects = ((PyListObject *)p)->ob_item;
   alloc = ((PyListObject *)p)->allocated;
   printf("[*] Python list info\n");
   printf("[*] Size of the Python List = %d\n", size);
@@ -39,6 +47,7 @@ void print_python_list(PyObject *p)
       printf("Element %d: ", i);
       ob = objects[i];
       printf("%s\n", (ob->ob_type)->tp_name);
+    }
     }
 
 }
