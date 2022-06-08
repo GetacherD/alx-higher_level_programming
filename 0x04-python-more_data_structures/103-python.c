@@ -1,19 +1,18 @@
 #include <Python.h>
+#include <string.h>
 
 void print_python_bytes(PyObject *p)
 {
   int size, i;
   PyBytesObject *by = (PyBytesObject *)p;
-  int is_valid;
-  is_valid = PyBytes_Check(p);
+  int is_valid = PyBytes_Check(p);
+  int is_none = Py_IsNone(p);
+  
   size = ((PyVarObject *)p)->ob_size;
-  printf("[.] bytes object info\n");
-  if (!is_valid)
-  {
-    printf("  [ERROR] Invalid Bytes Object\n");
-  }
-  else
-  {
+  if (strcmp(((PyObject *)p)->ob_type->tp_name, "bytes") == 0)
+    {  
+      
+    printf("[.] bytes object info\n");
     printf("  size: %d\n", size);
     printf("  trying string: %s\n", by->ob_sval);
     printf("  first %d bytes: ", 10 >= size ? size : 10);
@@ -23,6 +22,10 @@ void print_python_bytes(PyObject *p)
     }
     printf("%02hhx\n",  by->ob_sval[i]);
   }
+  if (!is_valid && is_none)
+    {
+      printf("[ERROR] Invalid Bytes Object");
+    }
 }
 void print_python_list(PyObject *p)
 {
@@ -44,6 +47,7 @@ void print_python_list(PyObject *p)
       printf("Element %d: ", i);
       ob = objects[i];
       printf("%s\n", (ob->ob_type)->tp_name);
+      print_python_bytes(ob);
     }
     
 
