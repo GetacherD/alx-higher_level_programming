@@ -8,6 +8,8 @@ def roman_to_int(roman_string):
     sym = list(roman_string)
     tot = 0
     for c in sym:
+        if c not in digits:
+            return 0
         tot = tot + val[digits.index(c)]
     if "M" in sym and "C" in sym and sym.index("M") > sym.index("C"):
         tot = tot - 200
