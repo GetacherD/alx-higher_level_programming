@@ -76,11 +76,10 @@ class Square:
 
         """ str representation of object as my print"""
         st = []
-        if self.__size == 0:
-            return ""
-        [st.append("") for i in range(self.__position[1])]
-        if self.__position[1] > 0:
-            st.append("\n")
+        if self.__size != 0:
+            [st.append("") for i in range(self.__position[1])]
+            if self.__position[1] > 0:
+                st.append("\n")
         for i in range(self.__size):
             [st.append(" ") for k in range(self.__position[0])]
             [st.append("#") for j in range(self.__size)]
