@@ -12,6 +12,7 @@ class Square:
             size(int): size of new object
         """
         self.size = size
+
     @property
     def size(self):
 
