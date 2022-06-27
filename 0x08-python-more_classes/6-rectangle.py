@@ -22,8 +22,8 @@ class Rectangle:
             TypeError: if height or width is not type of int
             ValueError: if height ir width < 0
         """
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
         Rectangle.number_of_instances += 1
 
     @property
