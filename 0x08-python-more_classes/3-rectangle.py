@@ -80,4 +80,5 @@ class Rectangle:
         if self.__height == 0 or self.__width == 0:
             return ""
         st = [("#" * self.__width + "\n") for i in range(self.__height)]
+        st.pop()
         return "".join(st)
