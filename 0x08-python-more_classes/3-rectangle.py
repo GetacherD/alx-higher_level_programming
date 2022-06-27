@@ -79,6 +79,6 @@ class Rectangle:
         """  str representation of rectangle objects"""
         if self.__height == 0 or self.__width == 0:
             return ""
-        st = [("#" * self.__width + "\n") for i in range(self.__height)]
-        st.pop()
+        st = [("#" * self.__width + "\n") for i in range(self.__height - 1)]
+        st.append("#" * self.__width)
         return "".join(st)
