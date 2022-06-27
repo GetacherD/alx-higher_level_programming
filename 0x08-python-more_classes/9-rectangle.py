@@ -40,6 +40,9 @@ class Rectangle:
         """ set width of rectangle
         Args:
             value(int): new width value
+        Raises:
+            TypeError: if value not integer
+            ValueError: value < 0
         """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
@@ -122,7 +125,7 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
 
-        """ create sqaure rectangle
+        """ create square rectangle
         Args:
             size(int): size of square
         """
