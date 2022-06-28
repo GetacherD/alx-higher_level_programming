@@ -133,4 +133,4 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if size < 0:
             raise ValueError("width must be >= 0")
-        return cls(size, size)
+        return (cls(size, size))
