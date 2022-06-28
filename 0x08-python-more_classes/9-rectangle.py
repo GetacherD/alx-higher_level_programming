@@ -129,4 +129,8 @@ class Rectangle:
         Args:
             size(int): size of square
         """
+        if not isinstance(size, int):
+            raise TypeError("width must be an integer")
+        if size < 0:
+            raise TypeError("width must be >= 0")
         return cls(size, size)
