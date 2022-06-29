@@ -12,10 +12,10 @@ Test for Normal Condtion column of first matrix == row second matrix
      >>> b = [[2], [3]]
      >>> mat_mul(a, b)
      [[8], [7]]
-     >>> a = [[2, 2, 2], [3, 3, 3], [4, 4, 4]]
-     >>> b = [[2, 2], [3, 3], [4, 4]]
+     >>> a = [[2, 2, 2], [2, 2, 2]]
+     >>> b = [[2, 2], [2, 2], [2, 2]]
      >>> mat_mul(a, b)
-     [[18, 18], [27, 27], [36, 36]]
+     [[12, 12], [12, 12]]
 
 Test for type(a)  or type(b) not a list
 
