@@ -67,3 +67,9 @@ class TestMaxInteger(unittest.TestCase):
         """ test for one negative"""
         ls = [4, 6, -5, 7, 12]
         self.assertEqual(max_int(ls), 12)
+
+    def test_for_one_element(self):
+
+        """ test for only one element"""
+        ls = [5]
+        self.assertEqual(max_int(ls), 5)
