@@ -21,30 +21,41 @@ Test for type(a)  or type(b) not a list
 
 ::
 
-     >>> a = 5
-     >>> b = [4, 9, 9]
+     >>> a = "Holberton"
+     >>> b = [[4, 9], [4, 9]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      TypeError: m_a must be a list
+     >>> a = [[4, 5], [7, 8]]
+     >>> b = "hol"
+     >>> mat_mul(a, b)
+     Traceback (most recent call last):
+     TypeError: m_b must be a list
      >>> a = [4, 7, 9]
      >>> b = [[4, 7], [9, 8]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      TypeError: m_a must be a list of lists
+     >>> a =[[3, 4], [6, 8]]
+     >>> b = [3, 5, 7]
+     >>> mat_mul(a, b)
+     Traceback (most recent call last):
+     TypeError: m_b must be a list of lists
 
 Test for empty List
 
 ::
 
-     >>> a = []
+     >>> a = [[]]
      >>> b = [[7, 7], [8, 8]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      ValueError: m_a can't be empty
      >>> b =[[]]
+     >>> a = [[4, 6], [6, 8]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
-     ValueError: m_a can't be empty
+     ValueError: m_b can't be empty
      >>> a =[[8, 9]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
@@ -93,6 +104,11 @@ When both a and be are of different size
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      TypeError: each row of m_a must be of the same size
+     >>> a = [[3, 5], [6, 9]]
+     >>> b = [[3, 5, 6], [5, 7]]
+     >>> mat_mul(a, b)
+     Traceback (most recent call last):
+     TypeError: each row of m_b must be of the same size
 
 Test for imcompatiple matrix colA != rowB for AxB
 
