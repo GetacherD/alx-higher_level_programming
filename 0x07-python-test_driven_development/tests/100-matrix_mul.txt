@@ -71,10 +71,12 @@ Test for type of  elements (not integer or float)
      Traceback (most recent call last):
      TypeError: m_a should contain only integers or floats
      >>> b =[["a", "test"], [8, 0]]
+     >>> a = [["a", "a"], [4, 6]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      TypeError: m_a should contain only integers or floats
      >>> a = [[6, 8], [9, 0]]
+     >>> b = [["a", "h"], [6, 9]]
      >>> mat_mul(a, b) #doctest: +IGNORE_EXCEPTION_DETAIL
      Traceback (most recent call last):
      TypeError: m_b should contain only integers or floats
@@ -124,17 +126,7 @@ Test for imcompatiple matrix colA != rowB for AxB
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      ValueError: m_a and m_b can't be multiplied
-     
-Test for improper argumnets count
-
-::
-
-     >>> mat_mul()
-     Traceback (most recent call last):
-     TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
-     >>> mat_mul([[4, 7], [9, 0]])
-     Traceback (most recent call last):
-     TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+ 
      
 Test For Large Numbers
 
