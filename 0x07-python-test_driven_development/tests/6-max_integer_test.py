@@ -20,22 +20,6 @@ class TestMaxInteger(unittest.TestCase):
         """
         self.assertEqual(max_int([]), None)
 
-    @unittest.skip("disable")
-    def test_None(self):
-
-        """
-        Test if list is None
-        """
-        self.assertRaises(max_int(None), TypeError,
-                          "TypeError: object of type 'NoneType' has no len()")
-
-    @unittest.skip("disable")
-    def test_WrongType(self):
-
-        """ test for non list input"""
-        self.assertRaises(max(7), TypeError,
-                          "TypeError: 'int' object is not iterable")
-
     def test_string(self):
 
         """ test for string input"""
@@ -77,3 +61,9 @@ class TestMaxInteger(unittest.TestCase):
         """ test for string array"""
         ls = ["abc", "def", "lkj", "ijk"]
         self.assertEqual(max_int(ls), "lkj")
+
+    def test_for_one_negative(self):
+
+        """ test for one negative"""
+        ls = [4, 6, -5, 7, 12]
+        self.assertEqual(max_int(ls), 12)
