@@ -132,3 +132,15 @@ Test For NaN
      >>> b = [[float('NaN')]]
      >>> mat_mul(a, b)
      [[nan]]
+
+Test for missing arguments
+
+::
+	>>> a = [[3, 4], [5, 6]]
+	>>> mat_mul(a) #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+	>>> mat_mul() #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a', 'm_b'
+	
