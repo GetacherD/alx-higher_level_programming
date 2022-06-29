@@ -65,7 +65,7 @@ Test for type of  elements (not integer or float)
 
 ::
 
-     >>> a = [[3, "a", "Hello"], ["hello", 7]]
+     >>> a = [[3, "a", "Hello"], ["hello", 7, 9]]
      >>> b = [[3, 5], [5, 8]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
@@ -116,6 +116,11 @@ Test for imcompatiple matrix colA != rowB for AxB
 
      >>> a = [[3, 4], [4, 4]]
      >>> b = [[2, 5], [4, 6], [7, 9]]
+     >>> mat_mul(a, b)
+     Traceback (most recent call last):
+     ValueError: m_a and m_b can't be multiplied
+     >>> a = [[2, 4, 5], [4, 8, 9]]
+     >>> b = [[2, 7], [8, 0]]
      >>> mat_mul(a, b)
      Traceback (most recent call last):
      ValueError: m_a and m_b can't be multiplied
