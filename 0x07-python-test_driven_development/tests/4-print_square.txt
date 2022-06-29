@@ -1,3 +1,4 @@
+
 Test Document For print_square Module
 
 ::
@@ -35,3 +36,10 @@ Test For size  < 0
      >>> print_sq(-1)
      Traceback (most recent call last):
      ValueError: size must be >= 0
+
+Test for missing argumnets
+
+::
+	>>> print_sq() #doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size
