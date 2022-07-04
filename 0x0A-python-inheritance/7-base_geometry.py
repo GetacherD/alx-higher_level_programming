@@ -19,6 +19,8 @@ class BaseGeometry:
 
         """
         Calculate Area
+        Raises:
+            Exception: if not implemented
         """
         raise Exception("area() is not implemented")
 
