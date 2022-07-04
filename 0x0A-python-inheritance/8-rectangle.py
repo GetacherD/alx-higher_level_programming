@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-Geometry Base Class
+Geometry Base Class Repr doc
 """
 
 
 class BaseGeometry:
 
     """
-    BaseGeometry class
+    BaseGeometry class Blueprint
     """
     def area(self):
 
         """
-        Calculate Area
+        not implemented , must be imeplemented in sub classes
         """
         raise Exception("area() is not implemented")
 
