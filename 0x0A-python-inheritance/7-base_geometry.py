@@ -9,6 +9,7 @@ class BaseGeometry:
     """
     BaseGeometry class
     """
+
     def area(self):
 
         """
@@ -19,7 +20,7 @@ class BaseGeometry:
     def integer_validator(self, name, value):
 
         """
-        Validate inputs
+        Validate inputs as integer
         Args:
             name(str): name of Geometry
             value(int): integer value to be validated
