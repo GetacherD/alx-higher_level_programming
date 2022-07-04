@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-
 """
 Geometry Base Class
 """
-
 Rectangle = __import__('9-rectangle').Rectangle
 
 
