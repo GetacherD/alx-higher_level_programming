@@ -29,6 +29,9 @@ class BaseGeometry:
         Args:
             name(str): name of param to be validated
             value(int): param to be validated
+        Raises:
+            TypeError: if value is not integer
+            ValueError: if value <= 0
         """
         if not (type(value) == int):
             raise TypeError("{} must be an integer".format(name))
