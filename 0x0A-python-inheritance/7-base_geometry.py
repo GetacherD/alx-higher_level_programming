@@ -23,6 +23,9 @@ class BaseGeometry:
         Args:
             name(str): name of Geometry
             value(int): integer value to be validated
+        Raises:
+            TypeError: if value not an integer
+            ValueError: if value <= 0
         """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
