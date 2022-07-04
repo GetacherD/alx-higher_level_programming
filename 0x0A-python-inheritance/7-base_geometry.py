@@ -1,24 +1,19 @@
 #!/usr/bin/python3
 """
-Geometry Base Class
+Geometry Base Class module doc
 """
 
 
 class BaseGeometry:
 
     """
-    BaseGeometry class
+    Blue print for BaseGeometry Objects
     """
-
-    def __init__(self):
-
-        """ empty init"""
-        pass
-
     def area(self):
 
         """
         Calculate Area
+
         Raises:
             Exception: if not implemented
         """
@@ -27,7 +22,8 @@ class BaseGeometry:
     def integer_validator(self, name, value):
 
         """
-        validate input param
+        Validate input parameters
+
         Args:
             name(str): name of param to be validated
             value(int): param to be validated
