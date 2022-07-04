@@ -9,6 +9,12 @@ class BaseGeometry:
     """
     BaseGeometry class
     """
+
+    def __init__(self):
+
+        """ empty init"""
+        pass
+
     def area(self):
 
         """
@@ -24,7 +30,7 @@ class BaseGeometry:
             name(str): name of param to be validated
             value(int): param to be validated
         """
-        if type(value) != int:
+        if not (type(value) == int):
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
