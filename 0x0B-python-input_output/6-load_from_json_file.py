@@ -2,6 +2,7 @@
 """
 create object from json file
 """
+import json
 
 
 def load_from_json_file(filename):
@@ -11,10 +12,5 @@ def load_from_json_file(filename):
     Args:
         filename: file name
     """
-    import json
-    try:
-        with open(filename, encoding="utf-8") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print("File not Found")
-        return []
+    with open(filename, encoding="utf-8") as f:
+        return json.load(f)
