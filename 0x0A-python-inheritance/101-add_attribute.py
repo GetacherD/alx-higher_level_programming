@@ -19,4 +19,4 @@ def add_attribute(obj, name, value):
         raise TypeError("can't add new attribute")
     if name is None or value is None:
         raise TypeError("can't add new attribute")
-    setattr(obj, name, name)
+    setattr(obj, name, value)
