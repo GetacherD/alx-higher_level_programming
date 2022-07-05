@@ -1,4 +1,4 @@
-# 7-base_geometry.txt
+Test Doc for base_geometery class
 
 import
 =============
@@ -110,13 +110,13 @@ Test for proper argumnets supply
 
     >>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
-    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ::
 
     >>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
-    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 
 
