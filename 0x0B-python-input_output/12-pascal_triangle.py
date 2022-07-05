@@ -10,6 +10,8 @@ def pascal_triangle(n):
     return pascal_triangle
     Args:
         n(int): number of row
+    Returns:
+        list: pascal_triangle
     """
     if n <= 0:
         return []
