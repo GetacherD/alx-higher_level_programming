@@ -2,32 +2,7 @@
 """
 Geometry Base Class Repr doc
 """
-
-
-class BaseGeometry:
-
-    """
-    BaseGeometry class Blueprint
-    """
-    def area(self):
-
-        """
-        not implemented , must be imeplemented in sub classes
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-
-        """
-        Validate inputs
-        Args:
-            name(str): name of Geometry
-            value(int): integer value to be validated
-        """
-        if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
