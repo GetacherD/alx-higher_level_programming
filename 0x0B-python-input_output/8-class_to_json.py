@@ -2,7 +2,6 @@
 """
 Json Class inherited
 """
-import json
 
 
 def class_to_json(obj):
@@ -12,5 +11,4 @@ def class_to_json(obj):
     Args:
         obj: any object
     """
-    if hasattr(obj, "__dict__"):
-        return json.loads(json.dumps(obj.__dict__))
+    return obj.__dict__
