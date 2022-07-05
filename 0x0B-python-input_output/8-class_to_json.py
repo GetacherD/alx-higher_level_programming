@@ -13,4 +13,4 @@ def class_to_json(obj):
         obj: any object
     """
     if hasattr(obj, "__dict__"):
-        return json.dumps(obj.__dict__)
+        return json.loads(json.dumps(obj.__dict__))
