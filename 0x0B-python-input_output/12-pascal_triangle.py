@@ -11,6 +11,8 @@ def pascal_triangle(n):
     Args:
         n(int): number of row
     """
+    if type(n) != int:
+        return []
     if n <= 0:
         return []
     if n == 1:
