@@ -12,4 +12,5 @@ def class_to_json(obj):
     Args:
         obj: any object
     """
-    return json.dumps(obj.__dict__)
+    if hasattr(obj, "__dict__"):
+        return json.dumps(obj.__dict__)
