@@ -45,4 +45,5 @@ class Student:
         Args:
             json: json string
         """
-        return Student(**json)
+        for k, v in json.items():
+            setattr(self, k, v)
