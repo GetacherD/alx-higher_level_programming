@@ -19,9 +19,9 @@ def pascal_triangle(n):
         return [[1]]
     ret = [[1]]
     res = [[1]]
-    i = 1
-    prev_row = [1, 1]
-    while i < n:
+    i = 0
+    prev_row = [1]
+    while i < n - 2:
         for i in range(len(prev_row) - 1):
             res[0].append(prev_row[i] + prev_row[i + 1])
         res[0].append(1)
