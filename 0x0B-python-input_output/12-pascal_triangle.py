@@ -17,10 +17,16 @@ def pascal_triangle(n):
         return []
     if n == 1:
         return [[1]]
-    res = [[]]
-    res[0].append(1)
-    prev_row = pascal_triangle(n - 1)[-1]
-    for i in range(len(prev_row) - 1):
-        res[0].append(prev_row[i] + prev_row[i + 1])
-    res[0].append(1)
-    return pascal_triangle(n - 1) + res
+    ret = [[1]]
+    res = [[1]]
+    i = 1
+    prev_row = [1, 1]
+    while i < n:
+        for i in range(len(prev_row) - 1):
+            res[0].append(prev_row[i] + prev_row[i + 1])
+        res[0].append(1)
+        ret += res
+        prev_row = res[0][::1]
+        res = [[1]]
+        i += 1
+    return ret
