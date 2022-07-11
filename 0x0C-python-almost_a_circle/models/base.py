@@ -31,7 +31,7 @@ class Base:
         import json
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        return json.dumps(list_dictionaries)
+        return [json.dumps(d) for d in list_dictionaries]
 
     @classmethod
     def save_to_file(cls, list_objs):
