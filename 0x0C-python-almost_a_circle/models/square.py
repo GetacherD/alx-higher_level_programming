@@ -24,7 +24,7 @@ class Square(Rectangle):
     def size(self):
 
         """ Get width """
-        return self.width
+        return super().__width
 
     @size.setter
     def size(self, value):
@@ -34,8 +34,8 @@ class Square(Rectangle):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be >= 0")
-        self.width = value
-        self.height = value
+        super().__width = value
+        super().__height = value
 
     def update(self, *args, **kwargs):
 
