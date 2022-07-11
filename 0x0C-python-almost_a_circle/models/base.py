@@ -70,11 +70,4 @@ class Base:
     def load_from_file(cls):
 
         """ Load from file """
-        filename = str(cls.__name__) + ".json"
-        try:
-            with open(filename, "r") as f:
-                obj = [cls.create(**d) for d in Base.from_json_string(f.read())]
-        except FileNotFoundError:
-            return []
-        else:
-            return obj
+        pass
