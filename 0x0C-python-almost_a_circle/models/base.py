@@ -38,8 +38,43 @@ class Base:
 
         """ save json str to file """
         import json
-        with open("{}.json".format(cls.__name__), "w") as f:
+        filename = cls.__name__+".json"
+        with open(filename, "w") as f:
             if list_objs is None:
-                json.dump("[]", f)
+                f.write("[]")
             else:
-                json.dump(Base.to_json_string(list_objs), f)
+                js = [o.to_dictionary() for o in list_objs]
+                f.write(json.dumps(js))
+
+    @staticmethod
+    def from_json_string(json_string):
+
+        """ get objects from json """
+        import json
+        if json_string is None or json_string == []:
+            return []
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+
+        """ Create new objects """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        else:
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+
+        """ Load from file """
+        filename = str(cls.__name__) + ".json"
+        try:
+            with open(filename, "r") as f:
+                obj = [cls.create(**d) for d in Base.from_json_string(f.read())]
+        except FileNotFoundError:
+            return []
+        else:
+            return obj
