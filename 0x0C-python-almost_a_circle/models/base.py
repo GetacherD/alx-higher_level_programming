@@ -83,5 +83,5 @@ class Base:
             return []
         else:
             obj = Base.from_json_string(f.read())
-            ret = [cls(**d) for d in obj]
+            ret = [cls.create(**d) for d in obj]
             return ret
