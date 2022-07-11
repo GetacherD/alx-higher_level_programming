@@ -85,3 +85,52 @@ class Base:
             obj = Base.from_json_string(f.read())
             ret = [cls.create(**d) for d in obj]
             return ret
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+
+        """ Save to Csv file """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as f:
+            if cls.__name__ == "Rectangle":
+                for r in list_objs:
+                    f.write(str(r.id) + ","
+                            + str(r.width) + ","
+                            + str(r.height) + ","
+                            + str(r.x) + ","
+                            + str(r.y))
+                    f.write("\n")
+            if cls.__name__ == "Square":
+                for r in list_objs:
+                    f.write(str(r.id) + ","
+                            + str(r.size) + ","
+                            + str(r.x) + ","
+                            + str(r.y))
+                    f.write("\n")
+
+    @classmethod
+    def load_from_file_csv(cls):
+
+        """ Load from csv file """
+        filename = cls.__name__ + ".csv"
+        objs = []
+        with open(filename) as f:
+            dic = {}
+            if cls.__name__ == "Rectangle":
+                for line in f.readlines():
+                    L = line.split(",")
+                    dic["id"] = int(L[0])
+                    dic["width"] = int(L[1])
+                    dic["height"] = int(L[2])
+                    dic["x"] = int(L[3])
+                    dic["y"] = int(L[4])
+                    objs.append(cls.create(**dic))
+            if cls.__name__ == "Square":
+                for line in f.readlines():
+                    L = line.split(",")
+                    dic["id"] = int(L[0])
+                    dic["size"] = int(L[1])
+                    dic["x"] = int(L[2])
+                    dic["y"] = int(L[3])
+                    objs.append(cls.create(**dic))
+            return objs
