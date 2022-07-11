@@ -2,17 +2,17 @@
 """
 Test Rectangle Class
 """
-from models.rectangle import Rectangle
+from models.square import Square
 import unittest
 
 
-class TestRectangle(unittest.TestCase):
+class TestSquare(unittest.TestCase):
 
     """ Test Rectangle """
     def setUp(self):
 
         """ initialize test fixture """
-        self.rec = Rectangle(2, 2)
+        self.rec = Square(2)
 
     def test_width(self):
 
