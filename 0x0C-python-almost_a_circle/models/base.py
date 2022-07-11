@@ -36,7 +36,7 @@ class Base:
             if type(o) == dict:
                 ret.append(o)
             elif isinstance(o, Base):
-                ret.append(o.__dict__)
+                ret.append(o.to_dictionary())
             else:
                 pass
         return json.dumps(ret)
