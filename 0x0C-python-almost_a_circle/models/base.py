@@ -2,6 +2,7 @@
 """
 Base Class
 """
+import json
 
 
 class Base:
@@ -28,23 +29,28 @@ class Base:
     def to_json_string(list_dictionaries):
 
         """ convert to json string """
-        import json
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
-        return json.dumps(list_dictionaries)
+        ret = []
+        for o in list_dictionaries:
+            if type(o) == dict:
+                ret.append(o)
+            elif isinstance(o, Base):
+                ret.append(o.__dict__)
+            else:
+                pass
+        return json.dumps(ret)
 
     @classmethod
     def save_to_file(cls, list_objs):
 
         """ save json str to file """
-        import json
         filename = cls.__name__+".json"
         with open(filename, "w") as f:
             if list_objs is None:
                 f.write("[]")
             else:
-                js = [o.to_dictionary() for o in list_objs]
-                f.write(json.dumps(js))
+                f.write(Base.to_json_string(list_objs))
 
     @staticmethod
     def from_json_string(json_string):
