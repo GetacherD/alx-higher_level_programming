@@ -320,3 +320,24 @@ class TestRectangle(unittest.TestCase):
         R = Rectangle(2, 2)
         R.save_to_file(None)
         self.assertTrue(exists("Rectangle.json"))
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_save_to_file_empty(self):
+
+        """ Test for save file """
+        R = Rectangle(2, 2)
+        R.save_to_file([])
+        self.assertTrue(exists("Rectangle.json"))
+        with open("Rectangle.json") as f:
+            self.assertEqual("[]", f.read())
+
+    def test_save_to_file_list(self):
+
+        """ Test for normal list """
+        R = Rectangle(2, 2)
+        R.save_to_file([{"id": 30, "width": 45, "height": 56}])
+        self.assertTrue(exists("Rectangle.json"))
+        with open("Rectangle.json") as f:
+            self.assertEqual('[{"id": 30, "width": 45, "height": 56}]',
+                             f.read())
