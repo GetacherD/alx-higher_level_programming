@@ -138,3 +138,177 @@ class TestRectangle(unittest.TestCase):
         """ test for value of y"""
         with self.assertRaises(ValueError):
             Rectangle(1, 2, 3, -1)
+
+    def test_for_width_0(self):
+
+        """ Test for width = 0 """
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+
+    def test_for_heigh_0(self):
+
+        """ Test for height = 0"""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+
+    def test_for_str(self):
+
+        """ test for __str__ """
+        R = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual("[Rectangle] (5) 3/4 - 1/2", R.__str__())
+
+    def test_displat(self):
+
+        """ Test for display """
+        R = Rectangle(3, 3)
+        R.display()
+
+    def test_to_dictionary(self):
+
+        """ test for to_dictionary function """
+        R = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual({"id": 5, "width": 1, "height": 2, "x": 3, "y": 4},
+                         R.to_dictionary())
+
+    def test_update(self):
+
+        """ Test for update """
+        R = Rectangle(1, 1)
+        R.update(2, 2, 2, 2, 2)
+        self.assertEqual({"id": 2, "width": 2, "height": 2, "x": 2, "y": 2},
+                         R.to_dictionary())
+
+    def test_update_1(self):
+
+        """ test for 1 arg """
+        R = Rectangle(2, 2)
+        R.update(98)
+        self.assertEqual(R.id, 98)
+
+    def test_update_2(self):
+
+        """ test for 2 args """
+        R = Rectangle(2, 2)
+        R.update(44, 88)
+        self.assertEqual(R.id, 44)
+        self.assertEqual(R.width, 88)
+
+    def test_update_3(self):
+
+        """ Test for 3 args """
+        R = Rectangle(2, 2)
+        R.update(55, 66, 77)
+        self.assertEqual(R.id, 55)
+        self.assertEqual(R.width, 66)
+        self.assertEqual(R.height, 77)
+
+    def test_update_4(self):
+
+        """ Test for 4 args """
+        R = Rectangle(2, 2)
+        R.update(88, 99, 101, 202)
+        self.assertEqual(R.id, 88)
+        self.assertEqual(R.width, 99)
+        self.assertEqual(R.height, 101)
+        self.assertEqual(R.x, 202)
+
+    def test_update_5(self):
+
+        """ Test for 5 args """
+        R = Rectangle(2, 2)
+        R.update(11, 22, 33, 44, 55)
+        self.assertEqual(R.id, 11)
+        self.assertEqual(R.width, 22)
+        self.assertEqual(R.height, 33)
+        self.assertEqual(R.x, 44)
+        self.assertEqual(R.y, 55)
+
+    def test_update_kwargs_0(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34})
+        self.assertEqual(R.id, 34)
+
+    def test_update_kwargs_1(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+
+    def test_update_kwargs_3(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+
+    def test_update_kwargs_4(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56, "x": 22})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+        self.assertEqual(R.x, 22)
+
+    def test_update_kwargs_5(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56, "x": 22, "y": 5})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+        self.assertEqual(R.x, 22)
+        self.assertEqual(R.y, 5)
+
+    def test_create_kwargs_1(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34})
+        self.assertEqual(R.id, 34)
+
+    def test_create_kwargs_2(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+
+    def test_create_kwargs_3(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+
+    def test_create_kwargs_4(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56, "x": 22})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+        self.assertEqual(R.x, 22)
+
+    def test_create_kwargs_5(self):
+
+        """ Test for update with kwargs """
+        R = Rectangle(2, 2)
+        R.update(**{"id": 34, "width": 45, "height": 56, "x": 22, "y": 5})
+        self.assertEqual(R.id, 34)
+        self.assertEqual(R.width, 45)
+        self.assertEqual(R.height, 56)
+        self.assertEqual(R.x, 22)
+        self.assertEqual(R.y, 5)
