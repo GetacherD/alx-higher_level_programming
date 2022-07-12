@@ -4,6 +4,7 @@ Test Rectangle Class
 """
 from models.rectangle import Rectangle
 import unittest
+from os.path import exists
 
 
 class TestRectangle(unittest.TestCase):
@@ -312,3 +313,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(R.height, 56)
         self.assertEqual(R.x, 22)
         self.assertEqual(R.y, 5)
+
+    def test_save_to_file(self):
+
+        """ Test for save to file """
+        R = Rectangle(2, 2)
+        R.save_to_file(None)
+        self.assertTrue(exists("Rectangle.json"))
