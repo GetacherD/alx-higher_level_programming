@@ -5,6 +5,8 @@ Test Rectangle Class
 from models.rectangle import Rectangle
 import unittest
 from os.path import exists
+import json
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -322,6 +324,7 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(exists("Rectangle.json"))
         with open("Rectangle.json") as f:
             self.assertEqual(f.read(), "[]")
+        os.remove("Rectangle.json")
 
     def test_save_to_file_empty(self):
 
@@ -331,13 +334,30 @@ class TestRectangle(unittest.TestCase):
         self.assertTrue(exists("Rectangle.json"))
         with open("Rectangle.json") as f:
             self.assertEqual("[]", f.read())
+        os.remove("Rectangle.json")
 
     def test_save_to_file_list(self):
 
         """ Test for normal list """
         R = Rectangle(2, 2)
-        R.save_to_file([{"id": 30, "width": 45, "height": 56}])
+        R.save_to_file([R])
         self.assertTrue(exists("Rectangle.json"))
         with open("Rectangle.json") as f:
-            self.assertEqual('[{"id": 30, "width": 45, "height": 56}]',
+            self.assertEqual(json.dumps([R.to_dictionary()]),
                              f.read())
+        os.remove("Rectangle.json")
+
+    def test_load_from_no_file(self):
+
+        """ Test for No file """
+        R = Rectangle(2, 2)
+        self.assertEqual(R.load_from_file(), [])
+
+    def test_load_from_file(self):
+
+        """ Test load from file no file """
+        R = Rectangle(2, 2)
+        R.save_to_file([R])
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), json.dumps([R.to_dictionary()]))
+        os.remove("Rectangle.json")
