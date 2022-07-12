@@ -187,6 +187,43 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 55)
         self.assertEqual(s.y, 66)
 
+    def test_update_dict1(self):
+
+        """ test for 1 arg """
+        s = Square(1)
+        s.update(**{"id": 34})
+        self.assertEqual(s.id, 34)
+
+    def test_update_d2(self):
+
+        """ Test for 2 args """
+        s = Square(1)
+        s.update(**{"id": 45, "size": 55})
+        self.assertEqual(s.id, 45)
+        self.assertEqual(s.width, 55)
+        self.assertEqual(s.height, 55)
+
+    def test_update_d3(self):
+
+        """ Test for 3 args """
+        s = Square(1)
+        s.update(**{"id": 3, "size": 4, "x": 5})
+        self.assertEqual(s.id, 3)
+        self.assertEqual(s.width, 4)
+        self.assertEqual(s.height, 4)
+        self.assertEqual(s.x, 5)
+
+    def test_update_d4(self):
+
+        """ Test for 4 args """
+        s = Square(1)
+        s.update(**{"id": 33, "size": 44, "x": 55, "y": 66})
+        self.assertEqual(s.id, 33)
+        self.assertEqual(s.width, 44)
+        self.assertEqual(s.height, 44)
+        self.assertEqual(s.x, 55)
+        self.assertEqual(s.y, 66)
+
     def test_type_width(self):
 
         """ Test for type check of width """
