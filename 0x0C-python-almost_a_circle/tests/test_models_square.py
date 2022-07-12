@@ -97,6 +97,26 @@ class TestSquare(unittest.TestCase):
         s = Square(1, 2, 3, 4)
         self.assertEqual(s.__str__(), "[Square] (4) 2/3 - 1")
 
+    def test_update_0(self):
+
+        """ test for update with No input """
+        s = Square(4)
+        s.update()
+        self.assertEqual(s.width, 4)
+        self.assertEqual(s.height, 4)
+        self.assertEqual(s.x, 0)
+        self.assertEqual(s.y, 0)
+
+    def test_update_empty_dic(self):
+
+        """ test for empty dic """
+        s = Square(30)
+        s.update(**{})
+        self.assertEqual(s.width, 30)
+        self.assertEqual(s.height, 30)
+        self.assertEqual(s.x, 0)
+        self.assertEqual(s.y, 0)
+
     def test_update_1(self):
 
         """ test for 1 arg """

@@ -181,6 +181,22 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual({"id": 2, "width": 2, "height": 2, "x": 2, "y": 2},
                          R.to_dictionary())
 
+    def test_update_0(self):
+
+        """ test for update with None """
+        R = Rectangle(2, 2)
+        R.update()
+        self.assertEqual(R.width, 2)
+        self.assertEqual(R.height, 2)
+
+    def test_update_empty_dic(self):
+
+        """ test for empty dict update """
+        R = Rectangle(4, 6)
+        R.update(**{})
+        self.assertEqual(R.width, 4)
+        self.assertEqual(R.height, 6)
+
     def test_update_1(self):
 
         """ test for 1 arg """
