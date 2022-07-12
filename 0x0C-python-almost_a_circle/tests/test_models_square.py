@@ -4,6 +4,9 @@ Test Rectangle Class
 """
 from models.square import Square
 import unittest
+from os.path import exists
+import os
+import json
 
 
 class TestSquare(unittest.TestCase):
@@ -205,3 +208,49 @@ class TestSquare(unittest.TestCase):
         """ test value check -y """
         with self.assertRaises(ValueError):
             Square(1, 2, -1)
+
+    def test_save_to_file(self):
+
+        """ Test for save to file """
+        R = Square(2)
+        R.save_to_file(None)
+        self.assertTrue(exists("Square.json"))
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), "[]")
+        os.remove("Square.json")
+
+    def test_save_to_file_empty(self):
+
+        """ Test for save file """
+        R = Square(2, 2)
+        R.save_to_file([])
+        self.assertTrue(exists("Square.json"))
+        with open("Square.json") as f:
+            self.assertEqual("[]", f.read())
+        os.remove("Square.json")
+
+    def test_save_to_file_list(self):
+
+        """ Test for normal list """
+        R = Square(2, 2)
+        R.save_to_file([R])
+        self.assertTrue(exists("Square.json"))
+        with open("Square.json") as f:
+            self.assertEqual(json.dumps([R.to_dictionary()]),
+                             f.read())
+        os.remove("Square.json")
+
+    def test_load_from_no_file(self):
+
+        """ Test for No file """
+        R = Square(2, 2)
+        self.assertEqual(R.load_from_file(), [])
+
+    def test_load_from_file(self):
+
+        """ Test load from file no file """
+        R = Square(2, 2)
+        R.save_to_file([R])
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), json.dumps([R.to_dictionary()]))
+        os.remove("Square.json")
