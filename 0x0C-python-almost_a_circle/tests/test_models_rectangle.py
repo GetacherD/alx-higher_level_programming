@@ -7,6 +7,7 @@ import unittest
 from os.path import exists
 import json
 import os
+from io import StringIO
 
 
 class TestRectangle(unittest.TestCase):
@@ -159,12 +160,6 @@ class TestRectangle(unittest.TestCase):
         """ test for __str__ """
         R = Rectangle(1, 2, 3, 4, 5)
         self.assertEqual("[Rectangle] (5) 3/4 - 1/2", R.__str__())
-
-    def test_displat(self):
-
-        """ Test for display """
-        R = Rectangle(3, 3)
-        R.display()
 
     def test_to_dictionary(self):
 
@@ -377,3 +372,27 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json") as f:
             self.assertEqual(f.read(), json.dumps([R.to_dictionary()]))
         os.remove("Rectangle.json")
+
+    def test_display(self):
+
+        """ test for display """
+        R = Rectangle(2, 2)
+        import sys
+        old_std = sys.stdout
+        new_std = StringIO()
+        sys.stdout = new_std
+        R.display()
+        sys.stdout = old_std
+        self.assertEqual(new_std.getvalue(), "##\n##\n")
+
+    def test_display_with_xy(self):
+
+        """ Test with x y  ! = 0 """
+        R = Rectangle(2, 2, 2, 2)
+        import sys
+        old_std = sys.stdout
+        new_std = StringIO()
+        sys.stdout = new_std
+        R.display()
+        sys.stdout = old_std
+        self.assertEqual(new_std.getvalue(), "\n\n  ##\n  ##\n")
