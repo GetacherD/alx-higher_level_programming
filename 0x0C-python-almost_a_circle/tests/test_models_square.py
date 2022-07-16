@@ -64,6 +64,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.width, 1)
         self.assertEqual(s.height, 1)
 
+    def test_to_dictionary(self):
+
+        """ Test for to dictionary """
+        s = Square(4, 6, 8, 10)
+        self.assertEqual(s.to_dictionary(), {"id": 10, "size": 4, "x": 6, "y": 8})
+
     def test_sq_2(self):
 
         """ Test for 2 args """
