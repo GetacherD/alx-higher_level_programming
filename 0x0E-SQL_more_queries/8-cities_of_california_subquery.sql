@@ -1,3 +1,3 @@
 -- sub query
-SELECT cities.id, cities.name FROM cities WHERE state_id =
-(SELECT id FROM states WHERE name = "california") ORDER BY cites.id; 
+SELECT id, name FROM cities WHERE state_id in
+(SELECT id FROM states WHERE name = "california") ORDER BY id ASC; 
