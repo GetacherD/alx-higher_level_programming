@@ -1,4 +1,3 @@
 -- sub query
-USE hbtn_0d_usa;
-SELECT cities.id, cities.name FROM cities where state_id =
-(select id from states where name = "california") ORDER BY cites.id; 
+SELECT cities.id, cities.name FROM cities WHERE state_id =
+(SELECT id FROM states WHERE name = "california") ORDER BY cites.id; 
