@@ -6,4 +6,4 @@ ON s.id = tg.show_id
 INNER JOIN tv_show_ratings AS r
 ON s.id = r.show_id
 GROUP BY g.name
-ORDER BY rating ;
+ORDER BY rating DESC;
