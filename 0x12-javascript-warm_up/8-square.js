@@ -1,13 +1,12 @@
 #!/usr/bin/node
 const proc = require('process');
-const num1 = Number(proc.argv[2]);
-const num2 = Number(proc.argv[2]);
+const num = Math.floor(Number(proc.argv[2]));
 let i = 0;
-if ((num1 !== num2) || num1 === undefined) {
+if (isNaN(num)) {
   console.log('Missing size');
 } else {
-  while (i < num1) {
-    console.log('x'.repeat(num1));
+  while (i < num) {
+    console.log('x'.repeat(num));
     i++;
   }
 }
