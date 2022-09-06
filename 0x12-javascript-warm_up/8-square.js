@@ -6,7 +6,7 @@ if (isNaN(num)) {
   console.log('Missing size');
 } else {
   while (i < num) {
-    console.log('x'.repeat(num));
+    console.log('X'.repeat(num));
     i++;
   }
 }
