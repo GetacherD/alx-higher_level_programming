@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const proc = require('process');
-const args = proc.argv;
-if (Number(args[2]) !== NaN) {
-  console.log(`My number: ${args[2]}`);
-} else {
+const num = Number(proc.argv[2]);
+if (num != num || num === undefined) {
   console.log('Not a number');
+} else {
+  console.log(`My number: ${num}`);
 }
