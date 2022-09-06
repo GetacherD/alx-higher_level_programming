@@ -10,12 +10,11 @@ module.exports = class Rectangle {
       this.height = h;
     }
   }
-
-  print () {
+  print() {
     let i = 0;
     while (i < Math.floor(Number(this.height))) {
       console.log('x'.repeat(Math.floor(Number(this.width))));
       i++;
     }
-  }
+  };
 };
