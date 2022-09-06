@@ -13,7 +13,7 @@ module.exports = class Rectangle {
   print() {
     let i = 0;
     while (i < Math.floor(Number(this.height))) {
-      console.log('x'.repeat(Math.floor(Number(this.width))));
+      console.log('X'.repeat(Math.floor(Number(this.width))));
       i++;
     }
   };
