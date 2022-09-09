@@ -17,6 +17,5 @@ if __name__ == "__main__":
             username, password, dbname))
     session = sessionmaker(bind=engine)()
     state = session.query(State).filter(State.id == 2)
-    if state:
-        state.name = "New Mexico"
+    state.name = "New Mexico"
     session.commit()
