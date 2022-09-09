@@ -16,7 +16,7 @@ if __name__ == "__main__":
                        db=dbname,
                        port=3306)
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states where name like 'N%'")
+    cur.execute("SELECT * FROM states where name like 'N%' ORDER BY id ASC")
     result = cur.fetchall()
     for r in result:
         print(r)
