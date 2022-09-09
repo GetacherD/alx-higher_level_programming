@@ -17,7 +17,8 @@ if __name__ == "__main__":
                        db=dbname,
                        port=3306)
     cur = conn.cursor()
-    query = "SELECT * FROM states where BINARY name='{}' ORDER BY id ASC".format(name)
+    query = """SELECT * FROM states where BINARY name='{}'
+            ORDER BY id ASC""".format(name)
     cur.execute(query)
     result = cur.fetchall()
     for r in result:
