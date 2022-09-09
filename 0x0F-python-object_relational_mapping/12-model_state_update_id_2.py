@@ -16,6 +16,6 @@ if __name__ == "__main__":
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
             username, password, dbname))
     session = sessionmaker(bind=engine)()
-    state = session.query(State).filter(State.id == 2)
+    state = session.query(State).filter_by(id=2).first()
     state.name = "New Mexico"
     session.commit()
