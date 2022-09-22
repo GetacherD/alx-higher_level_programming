@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-curl "$1" |grep Content-Length|awk '{print $2}'
+# Get content length from request
+curl -sI "$1" |grep Content-Length|awk '{print $2}'
