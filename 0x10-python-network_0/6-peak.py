@@ -6,12 +6,19 @@ Find peak module
 
 def find_peak(list_of_integers):
     """ find peak """
-    if len(list_of_integers) == 1:
-        return list_of_integers[0]
-    elif len(list_of_integers) == 0:
+    ls = list_of_integers
+    if len(ls) == 0:
         return None
+    elif len(ls) == 1:
+        return ls[0]
     else:
-        le = len(list_of_integers)//2
-        left = list_of_integers[0:le]
-        right = list_of_integers[le:]
-        return max(find_peak(left), find_peak(right))
+        i = 0
+        le = len(ls)
+        max = ls[0]
+        while True:
+            if max < ls[i]:
+                max = ls[i]
+            i += 1
+            if i >= le:
+                break
+    return max
