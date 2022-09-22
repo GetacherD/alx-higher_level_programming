@@ -1,3 +1,3 @@
 #!/bin/bash
 # Get content  from request
-curl -s "$1" -X OPTIONS -L
+curl -s "$1" -X OPTIONS
