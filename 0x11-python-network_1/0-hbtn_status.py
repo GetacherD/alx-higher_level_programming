@@ -10,4 +10,4 @@ if __name__ == "__main__":
         data = resp.read()
         print("    - type: {}".format(type(data)))
         print("    - content: {}".format(data))
-        rint("    - utf8 content: {}".format(data.decode("ascii")))
+        print("    - utf8 content: {}".format(data.decode("utf-8")))
