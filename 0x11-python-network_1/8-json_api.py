@@ -8,7 +8,7 @@ import requests
 
 if __name__ == "__main__":
     payload = {'q': len(sys.argv) >= 3 ? sys.argv[2]: ""}
-    resp = requests.get(sys.argv[1], params=payload)
+    resp = requests.post(sys.argv[1], data=payload)
     try:
         data = resp.json()
         if data:
