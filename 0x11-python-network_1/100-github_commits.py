@@ -13,4 +13,5 @@ if __name__ == "__main__":
     data = list(resp.json())
     for item in data:
         print("{}: {}".format(item.get(
-            "sha"), item.get("commit").get("author").get("name")))
+            "commit").get("tree").get("sha"), item.get(
+                "commit").get("author").get("name")))
