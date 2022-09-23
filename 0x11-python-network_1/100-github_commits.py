@@ -12,7 +12,5 @@ if __name__ == "__main__":
     resp = requests.get(url)
     data = list(resp.json())
     for item in data:
-        print("{}: {}".format(
-            item.get("commit").get("tree").get(
-                "sha"), item.get("commit").get(
-                    "author").get("name")))
+        print("{}: {}".format(item.get(
+            "sha"), item.get("commit").get("author").get("name")))
