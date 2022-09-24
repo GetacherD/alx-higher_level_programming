@@ -11,6 +11,9 @@ if __name__ == "__main__":
         sys.argv[2]) + "/" + str(sys.argv[1]) + "/commits"
     resp = requests.get(url)
     data = list(resp.json())
-    for item in data:
-        print("{}: {}".format(item.get(
-            "sha"), item.get("commit").get("author").get("name")))
+    try:
+        for item in data:
+            print("{}: {}".format(item.get(
+                "sha"), item.get("commit").get("author").get("name")))
+    except IndexError:
+        pass
