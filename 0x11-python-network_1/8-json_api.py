@@ -18,4 +18,4 @@ if __name__ == "__main__":
     elif not data:
         print("No result")
     else:
-        print("[{}] {}".format(dict(data)["id"], (dict(data))["name"]))
+        print("[{}] {}".format(data["id"], data["name"]))
