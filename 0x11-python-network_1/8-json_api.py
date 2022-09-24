@@ -15,7 +15,7 @@ if __name__ == "__main__":
     data = resp.json()
     if resp.headers.get("Content-Type") != 'application/json':
         print("Not a valid JSON")
-    elif dict(data) == {}:
+    elif not data:
         print("No result")
     else:
         print("[{}] {}".format(dict(data)["id"], (dict(data))["name"]))
