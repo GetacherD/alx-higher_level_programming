@@ -12,10 +12,10 @@ if __name__ == "__main__":
     else:
         payload = {'q': ''}
     resp = requests.post('http://0.0.0.0:5000/search_user', data=payload)
-    data = resp.json()
     if resp.headers.get("Content-Type") != 'application/json':
         print("Not a valid JSON")
-    elif not data:
+    elif not resp.json():
         print("No result")
     else:
+        data = resp.json()
         print("[{}] {}".format(data["id"], data["name"]))
