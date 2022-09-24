@@ -1,3 +1,3 @@
 #!/bin/bash
 # catch me
-curl -s -H "You got me!: yes" "$1"
+curl -sX POST --data "You got me! "$1"
