@@ -7,7 +7,10 @@ import requests
 
 
 if __name__ == "__main__":
-    payload = {'q': len(sys.argv) >= 2 ? sys.argv[1]: ""}
+    if len(sys.argv) >= 2:
+        payload = {'q': sys.argv[1]}
+    else:
+        payload = {'q': ''}
     resp = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     data = resp.json()
     if resp.headers.get("Content-Type") != 'application/json':
