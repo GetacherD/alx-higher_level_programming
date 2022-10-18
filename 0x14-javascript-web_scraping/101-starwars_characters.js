@@ -1,8 +1,16 @@
 #!/usr/bin/node
-const req = require('sync-request');
-
-const res = req('GET', 'https://swapi-api.hbtn.io/api/films/' + process.argv[2]);
-const data = JSON.parse(res.getBody()).characters;
-for (const ch of data) {
-  console.log(JSON.parse(req('GET', ch).getBody()).name);
-}
+const req = require('request-promise');
+const loadData = async () => {
+  try {
+    const res = await req.get('https://swapi-api.hbtn.io/api/films/' + process.argv[2]);
+    const data = await JSON.parse(res).characters;
+    for (const buddy of data) {
+      const man = await req.get(buddy);
+      const name = await JSON.parse(man).name;
+      console.log(name);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+loadData();
