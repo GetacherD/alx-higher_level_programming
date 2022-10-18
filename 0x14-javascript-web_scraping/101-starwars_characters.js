@@ -1,18 +1,23 @@
 #!/usr/bin/node
-const req = require('request-promise');
-const loadData = async () => {
-  try {
-    const res = await req.get('https://swapi-api.hbtn.io/api/films/' + process.argv[2]);
-    const data = await JSON.parse(res).characters;
-    for (const buddy of data) {
-      try {
-        const man = await req.get(buddy);
-        const name = await JSON.parse(man).name;
-        console.log(name);
-      } catch (e) {
-      }
-    }
-  } catch (e) {
+const req = require('request');
+req.get('https://swapi-api.hbtn.io/api/films/' + process.argv[2], function (err, resp, body) {
+  if (err) {
+    console.log(err);
+  } else {
+    const data = JSON.parse(body).characters;
+    print(data, 0);
   }
-};
-loadData();
+});
+function print (data, index) {
+  req.get(data[index], function (err, resp, body) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(JSON.parse(body).name);
+    }
+  });
+  const len = data.length;
+  if (index + 1 < len) {
+    print(data, index + 1);
+  }
+}
