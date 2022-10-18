@@ -19,9 +19,9 @@ async function main () {
     for (const ur of response.characters) {
       const resp = await doRequest(ur);
       console.log(resp.name);
-    } // `response` will be whatever you passed to `resolve()` at the top
+    }
   } catch (error) {
-    console.error(error); // `error` will be whatever you passed to `reject()` at the top
+    console.error(error);
   }
 }
 
