@@ -15,6 +15,13 @@ req.get(process.argv[2], { json: true }, function (err, resp, body) {
         }
       }
     }
-    console.log(res);
+    let out = '{';
+    for (const key in res) {
+      out += "  '" + key + "': " + res[key] + ',\n';
+    }
+    out = out.slice(2, -2);
+    out = '{' + out;
+    out += ' }';
+    console.log(out);
   }
 });
