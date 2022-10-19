@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-function doRequest (url) {
+function fetchData (url) {
   return new Promise(function (resolve, reject) {
     request(url, function (error, res, body) {
       if (!error && res.statusCode === 200) {
@@ -13,16 +13,16 @@ function doRequest (url) {
   });
 }
 
-async function main () {
+async function getAll () {
   try {
-    const response = await doRequest('https://swapi-api.hbtn.io/api/films/' + process.argv[2]);
-    for (const ur of response.characters) {
-      const resp = await doRequest(ur);
-      console.log(resp.name);
+    const movie = await fetchData('https://swapi-api.hbtn.io/api/films/' + process.argv[2]);
+    for (const characterUrl of movie.characters) {
+      const character = await fetchData(characterUrl);
+      console.log(character.name);
     }
   } catch (error) {
     console.error(error);
   }
 }
 
-main();
+getAll();
